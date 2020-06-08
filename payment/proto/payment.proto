@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package payment.v1;
+
+//PaymentService は支払いについて扱うServiceです。
+service PaymentService {
+	//Pay は指定の料金を支払います。
+	rpc Pay(PayRequest) returns (PaymentStatus) {};
+}
+
+//Request はI3セッションを更新しつつ取得するためのリクエストです。
+message PayRequest {
+  int32 amount = 1;
+}
+
+//PaymentStatus は支払いの状況を返します。
+message PaymentStatus {
+	string message = 1;
+	bool authorized = 2;
+}
