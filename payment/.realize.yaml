@@ -1,0 +1,23 @@
+settings:
+  legacy:
+    force: false
+    interval: 0s
+schema:
+- name: app
+  path: .
+  commands:
+    install:
+      status: true
+      method: make build
+    run:
+      status: true
+      method: ./dist/app
+  watcher:
+    extensions:
+    - go
+    paths:
+    - .
+    ignored_paths:
+    - .git
+    - vendor
+    - .docker
